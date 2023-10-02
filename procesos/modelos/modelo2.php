@@ -1,3 +1,4 @@
+<title>Remis</title>
 <link href="../../img/remis.png" rel="icon">
   <link href="../../template/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 

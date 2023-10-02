@@ -1,3 +1,4 @@
+<title>Remis</title>
 <link href="../../img/remis.png" rel="icon">
   <link href="../../template/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
@@ -40,7 +41,7 @@ if ($F !="A"){
           echo(  "<br>");
            echo( "<input type='text' name='apellido' placeholder='apellido' value=".$datos['apellido'].">");
            echo(  "<br>");
-           echo("<input type='text' name='poblacion' placeholder='localidad' value=".$datos['poblacion'].">");
+           echo("<input type='text' name='poblacion' placeholder='localidad' value=".$datos['localidad'].">");
            echo(  "<br>");
            echo("<input type='date' name='nacimiento' placeholder='fecha de nacimiento' value=".$datos['fecha_nacimiento'].">");
            echo(  "<br>");

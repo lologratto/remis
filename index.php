@@ -1,3 +1,7 @@
+<?php
+$cabe = " ";
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +9,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Impact Bootstrap Template - Index</title>
+  <title>Remis</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -145,7 +149,7 @@
               </div>
               <h3>Viajes a larga distancia</h3>
               <p>Vos eleji el destino y nostros hacemos el resto</p>
-              <a href="#" class="readmore stretched-link">Read more <i class="bi bi-car-front-fill"></i></a>
+              <a href="procesos/viajes/viajes2/viaje2,0.php" class="readmore stretched-link">Read more <i class="bi bi-car-front-fill"></i></a>
             </div>
           </div><!-- End Service Item -->
 

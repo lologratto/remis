@@ -1,3 +1,11 @@
+<title>Remis</title>
+<?php
+session_start();
+if(!isset ($_SESSION['usuario'])){
+    header("location:../../index.php");
+}
+$nomusuario=$_SESSION["usuario"];
+?>
 <?php
 $raiz = "../../";
 ?>
