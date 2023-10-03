@@ -41,6 +41,8 @@ if ($F !="A"){
           echo(  "<br>");
           echo(  " <input type='date' name='fecha' placeholder='fecha' value=".$datos['fecha'].">");
            echo(  "<br>");
+           echo(  " <input type='number' name='año' placeholder='año' value=".$datos['añov'].">");
+           echo(  "<br>");
            echo("<input type='text' name='salida' placeholder='hora de salida' value=".$datos['hora_salida'].">");
            echo(  "<br>");
            echo(  " <input type='text' name='retorno' placeholder='hora de retorno' value=".$datos['hora_retorno'].">");
@@ -94,6 +96,8 @@ else{
     echo(  "<br>");
     echo(  " <input type='date' name='fecha' placeholder='fecha' >");
      echo(  "<br>");
+     echo(  " <input type='number' name='año' placeholder='año'>");
+           echo(  "<br>");
      echo("<input type='text' name='salida' placeholder='hora de salida' >");
      echo(  "<br>");
      echo(  " <input type='text' name='retorno' placeholder='hora de retorno' >");
