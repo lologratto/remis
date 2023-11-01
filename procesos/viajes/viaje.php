@@ -54,7 +54,7 @@ require "../../php/cabecera2.php";
         <thead>
           <tr>
             <th scope="col">funciones</th>
-            
+            <th scope="col">Nombre del Cliente</th>
             <th scope="col">Precio</th>
             <th scope="col">Fecha</th>
             <th scope="col">Año</th>
@@ -70,7 +70,7 @@ require "../../php/cabecera2.php";
         <tbody>
   <?php
   require "../../php/conexion.php";
-  $q="select * from viajes, coches, destinos where viajes.id_coche=coches.id_coche and  viajes.id_destino=destinos.id_destino";
+  $q="select * from viajes, coches, destinos, clientes where viajes.id_cliente=clientes.id_cliente and  viajes.id_coche=coches.id_coche and  viajes.id_destino=destinos.id_destino";
  // echo($q);
   $r=mysqli_query($con, $q);
  
@@ -80,7 +80,7 @@ require "../../php/cabecera2.php";
   
   <a href='viaje2.php?id_viaje=".$datos['id_viaje']."&funcion=B'><img src='../../img/borrar (3).png' alt=''></a>
   
-  <td>". $datos['precio']."</td><td>".$datos['fecha']."</td><td>".$datos['añov']."</td><td>".$datos['hora_salida']."</td><td>".$datos['hora_retorno']."</td><td>".$datos['estado']."</td><td>".$datos['cant_asiento_dispo']."</td><td>".$datos['cant_asiento_vendido']."</td><td>".$datos['descripcion']."</td><td>".$datos['hasta']."</td>");
+  <td>". $datos['nombrec']."</td><td>". $datos['precio']."</td><td>".$datos['fecha']."</td><td>".$datos['añov']."</td><td>".$datos['hora_salida']."</td><td>".$datos['hora_retorno']."</td><td>".$datos['estado']."</td><td>".$datos['cant_asiento_dispo']."</td><td>".$datos['cant_asiento_vendido']."</td><td>".$datos['descripcion']."</td><td>".$datos['hasta']."</td>");
    echo("</tr>");
    
 

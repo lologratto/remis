@@ -16,6 +16,7 @@
 
   <!-- Template Main CSS File -->
   <link href="../../template/assets/css/main.css" rel="stylesheet">
+  <link href="../../css/estilos.css" rel="stylesheet">
 <?php
 require "../../php/cabecera3.php";
 ?>
@@ -34,12 +35,25 @@ if ($F !="A"){
     <?php
     echo ( "<center>");
     echo(" <form action='viaje3.php' method='GET'>");
-        
+    echo("<h1>Viajes</h1>");
+    echo("<select id='cliente' name='cliente'>");
+    require "../../php/conexion.php";
+    $q="select * from clientes order by nombrec";
+    $r=mysqli_query($con, $q);
+    while($datos2=mysqli_fetch_array($r)){
+    echo("<option value=". $datos2['id_cliente'].">". $datos2['nombrec']."</option>");
+    }
+    
+    echo("</select>"); 
+    echo(  "<br>"); 
          echo(  " <input type='text' name='id_viaje' readonly value=".$datos['id_viaje'].">");
           echo(  "<br>");
-          echo(  " <input type='number' name='precio' placeholder='precio' value=".$datos['precio'].">");
+          echo(  " <input type='number' name='precio'  placeholder='precio' value=".$datos['precio'].">");
+          echo(  "<br>");
+          echo("<label>Fecha</label>");
           echo(  "<br>");
           echo(  " <input type='date' name='fecha' placeholder='fecha' value=".$datos['fecha'].">");
+           echo(  "<br>");
            echo(  "<br>");
            echo(  " <input type='number' name='año' placeholder='año' value=".$datos['añov'].">");
            echo(  "<br>");
@@ -87,26 +101,39 @@ echo(  "<br>");
 else{ 
     echo ( "<center>");
     echo(" <form action='viaje3.php' method='GET'>");
+    echo("<h1>Viajes</h1>");
+
+    echo("<select id='cliente' name='cliente'>");
+    require "../../php/conexion.php";
+    $q="select * from clientes order by nombrec";
+    $r=mysqli_query($con, $q);
+    while($datos2=mysqli_fetch_array($r)){
+    echo("<option value=". $datos2['id_cliente'].">". $datos2['nombrec']."</option>");
+    }
     
+    echo("</select>"); 
+    echo(  "<br>");    
+
     echo(  " <input type='hidden' name='id_viaje' readonly >");
     echo(  "<br>");
-    echo(  " <input type='number' name='precio' placeholder='precio' >");
+    echo(  " <input type='number'  name='precio' placeholder='precio' >");
     echo(  "<br>");
     echo("<label>Fecha</label>");
     echo(  "<br>");
     echo(  " <input type='date' name='fecha' placeholder='fecha' >");
+     echo(  "<br>");
      echo(  "<br>");
      echo(  " <input type='number' name='año' placeholder='año'>");
            echo(  "<br>");
      echo("<input type='text' name='salida' placeholder='hora de salida' >");
      echo(  "<br>");
      echo(  " <input type='text' name='retorno' placeholder='hora de retorno' >");
+     
+     echo(  " <input type='hidden' name='estado' placeholder='estado' value='S' >");
      echo(  "<br>");
-     echo(  " <input type='text' name='estado' placeholder='estado' >");
+     echo(  " <input type='text' name='disponible' placeholder='asientos disponible' >");
      echo(  "<br>");
-     echo(  " <input type='text' name='disponible' placeholder='cantidad de asientos disponible' >");
-     echo(  "<br>");
-     echo(  " <input type='text' name='vendidos' placeholder='cantidad de asientos vendidos' >");
+     echo(  " <input type='text' name='vendidos' placeholder='asientos vendidos' >");
      echo(  "<br>");
      echo("<label>Coche</label>");
     echo(  "<br>");

@@ -16,6 +16,7 @@
 
   <!-- Template Main CSS File -->
   <link href="../../template/assets/css/main.css" rel="stylesheet">
+  <link href="../../css/estilos.css" rel="stylesheet">
 <?php
 require "../../php/cabecera3.php";
 ?>
@@ -34,7 +35,7 @@ if ($F !="A"){
     <?php
     echo ( "<center>");
     echo(" <form action='modelo3.php' method='GET'>");
-        
+    echo("<h1>Modelos</h1>");
          echo(  " <input type='text' name='id_modelo' readonly value=".$datos['id_modelo'].">");
           echo(  "<br>");
           echo(  " <input type='text' name='modelo'  value=".$datos['modelo'].">");
@@ -49,7 +50,7 @@ if ($F !="A"){
 else{ 
     echo ( "<center>");
     echo(" <form action='modelo3.php' method='GET'>");
-    
+    echo("<h1>Modelos</h1>");
     echo(  " <input type='hidden' name='id_modelo' readonly >");
     echo(  "<br>");
     echo(  " <input type='text' name='modelo' placeholder='modelo' >");

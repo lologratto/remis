@@ -10,7 +10,7 @@
   <nav id="navbar" class="navbar">
     <ul>
       <li><a href="<?php echo($raiz."principal.php");?>">Inicio</a></li>
-      <li><a href="<?php echo($raiz."procesos/clientes/cliente.php");?>">Clientes</a></li>
+      <li><a href="<?php echo($raiz."procesos/clientes/cliente.php");?>">Clientes</a></li> 
       <li><a href="<?php echo($raiz."procesos/coches/coche.php");?>">Coches</a></li>
       <li><a href="<?php echo($raiz."procesos/viajes/viaje.php");?>">Viajes</a></li>
       <li><a href="<?php echo($raiz."procesos/destinos/destino.php");?>">Destino</a></li>

@@ -26,7 +26,7 @@ $F=$_GET['funcion'];
  
 if ($F !="A"){
     // modificar y borrar
-    $q="select * from destino where id_destino=$id";
+    $q="select * from destinos where id_destino=$id";
 
     $r=mysqli_query($con, $q);
     while($datos=mysqli_fetch_array($r)){
@@ -37,8 +37,7 @@ if ($F !="A"){
         
          echo(  " <input type='text' name='id_destino' readonly value=".$datos['id_destino'].">");
           echo(  "<br>");
-          echo(  " <input type='text' name='desde'  value=".$datos['desde'].">");
-          echo(  "<br>");
+          
           echo(  " <input type='text' name='hasta' value=".$datos['hasta'].">");
            echo(  "<br>");
            echo("<input type='text' readonly name='funcion' value=".$F.">");
@@ -54,9 +53,8 @@ else{
     
     echo(  " <input type='hidden' name='id_destino' readonly >");
     echo(  "<br>");
-    echo(  " <input type='text' name='desde' placeholder='desde' >");
-    echo(  "<br>");
-    echo(  " <input type='text' name='hasta' placeholder='hasta' >");
+   
+    echo(  " <input type='text' name='hasta' placeholder='destino' >");
      echo(  "<br>");
      echo("<input type='text' readonly name='funcion' value=".$F.">");
      echo(  "<br>");

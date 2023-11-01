@@ -26,7 +26,7 @@
   <nav id="navbar" class="navbar">
     <ul>
       <li><a href="<?php echo($cabe."principal.php");?>">Inicio</a></li>
-      <li><a href="procesos/clientes/cliente.php">Clientes</a></li>
+      <li><a href="procesos/clientes/cliente.php">Clientes</a></li> 
       <li><a href="procesos/coches/coche.php">Coches</a></li>
       <li><a href="procesos/viajes/viaje.php">Viajes</a></li>
       <li><a href="procesos/destinos/destino.php">Destino</a></li>

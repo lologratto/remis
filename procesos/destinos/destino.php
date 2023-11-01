@@ -56,8 +56,8 @@ require "../../php/cabecera2.php";
           <tr>
             <th scope="col">funciones</th>
             
-            <th scope="col">desde</th>
-            <th scope="col">hasta</th>
+            <th scope="col">destino</th>
+            
             
             
           </tr>
@@ -74,7 +74,7 @@ require "../../php/cabecera2.php";
   
   <a href='destino2.php?id_destino=".$datos['id_destino']."&funcion=B'><img src='../../img/borrar (3).png' alt=''></a>
   
-  <td>". $datos['desde']."</td><td>".$datos['hasta']."</td>");
+  <td>".$datos['hasta']."</td>");
    echo("</tr>");
    
 

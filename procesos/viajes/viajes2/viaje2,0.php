@@ -19,6 +19,7 @@ $cabe = "../../../";
 
   <!-- Template Main CSS File -->
   <link href="../../../template/assets/css/main.css" rel="stylesheet">
+  
   <header id="header" class="header d-flex align-items-center">
 
 <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
@@ -58,41 +59,7 @@ $cabe = "../../../";
      <table class="table table-bordered border-dark table-secondary table-hover" border="2px">
         <thead class="m-1">
       
-        <thead>
-          <tr>
-          <th scope="col">Funciones</th>
-            <th scope="col">Precio</th>
-            <th scope="col">Fecha</th>
-            <th scope="col">Hora de Salida</th>
-            <th scope="col">Hora de Retorno</th>
-            <th scope="col">Estado</th>
-            <th scope="col">Cantidad de Asientos Disponibles</th>
-            <th scope="col">Cantidad de Asientos Vendidos</th>
-            <th scope="col">Coche</th>
-            <th scope="col">Destino</th>
-          </tr>
-        </thead>
-        <tbody>
-      <?php
-  require "../../../php/conexion.php";
-  $q="select * from viajes, coches, destinos where viajes.id_coche=coches.id_coche and  viajes.id_destino=destinos.id_destino";
- // echo($q);
-  $r=mysqli_query($con, $q);
- 
-  while( $datos=mysqli_fetch_array($r)){
-    echo("<tr>");
-    echo("<td scope='row'> <a href='../viaje2.php?id_viaje=".$datos['id_viaje']."&funcion=M' ><img src='../../img/dibujo (1).png' alt='' ></a>
-  
-  <a href='../viaje2.php?id_viaje=".$datos['id_viaje']."&funcion=B'><img src='../../../img/borrar (3).png' alt=''></a> 
-  <td>". $datos['precio']."</td><td>".$datos['fecha']."</td><td>".$datos['hora_salida']."</td><td>".$datos['hora_retorno']."</td><td>".$datos['estado']."</td><td>".$datos['cant_asiento_dispo']."</td><td>".$datos['cant_asiento_vendido']."</td><td>".$datos['descripcion']."</td><td>".$datos['hasta']."</td>");
-   echo("</tr>");
-   
-
-
-  }
-  
-  ?>
-  </tbody>
+        
   <label for=""><h5>Reserva tu viaje aca!!!</h5></label><img src="../../../img/flecha-correcta.png " height="50px" alt=""><a href='../viaje2.php?id_viaje=0&funcion=A' ><img src='../../../img/pluss.png ' class="m-2" height="100px" ></a>
   </table>
 </body>
