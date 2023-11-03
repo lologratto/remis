@@ -43,7 +43,8 @@ require "../../php/cabecera2.php";
       <br>
       <div>
       <div class="caja3 ">
-          
+      <div class="container">
+      <div class="caja3 ">
         
         
         <table class="table caja2" border="2px"> 
@@ -86,6 +87,7 @@ require "../../php/cabecera2.php";
   </tbody>
   <a href='coche2.php?id_coche=0&funcion=A' ><img src='../../img/pluss.png ' class="m-2" height="50px" ></a>
   </table>
+</div>
 </body>
 <?php
 require "../../php/pie.php";

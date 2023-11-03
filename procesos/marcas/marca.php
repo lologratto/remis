@@ -44,7 +44,8 @@ require "../../php/cabecera2.php";
       <div>
       <div class="caja3 ">
           
-        
+      <div class="container">
+      <div class="caja3 ">
         
         <table class="table caja2" border="2px"> 
      </div >
@@ -63,6 +64,7 @@ require "../../php/cabecera2.php";
           </tr>
         </thead>
         <tbody>
+          </div>
   <?php
   require "../../php/conexion.php";
   $q="select * from marcas ";
