@@ -16,6 +16,7 @@
       <li><a href="<?php echo($raiz."procesos/destinos/destino.php");?>">Destino</a></li>
       <li><a href="<?php echo($raiz."procesos/marcas/marca.php");?>">Marcas</a></li>
       <li><a href="<?php echo($raiz."procesos/modelos/modelo.php");?>">Modelos</a></li>
+      <li> <a href="<?php echo($raiz."php/cerrar.php");?>"> <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal"> Cerrar Secion</button></a></li>
   </nav><!-- .navbar -->
 </div>
 </header>

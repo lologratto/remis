@@ -32,7 +32,7 @@
       <li><a href="procesos/destinos/destino.php">Destino</a></li>
       <li><a href="procesos/marcas/marca.php">Marcas</a></li>
       <li><a href="procesos/modelos/modelo.php">Modelos</a></li>
-          <li> <a href="php/cerrar.php"> <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <li> <a href="php/cerrar.php"> <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
   Cerrar Secion
 </button></a></li>
 </ul>

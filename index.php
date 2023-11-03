@@ -60,7 +60,7 @@ $cabe = " ";
           <li><a href="#services">Servicios</a></li> 
           <li><a href="#contact">Contactos</a></li>
         
-      <li>  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      <li>  <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
   Iniciar Secion
 </button></li>
       </nav><!-- .navbar -->
@@ -302,7 +302,7 @@ $cabe = " ";
         <br>
         
             <div >
-              <button class="btn btn-primary" type="submit">Login</button>
+              <button class="btn btn-success" type="submit">Login</button>
             </div>
           </form>
         </div>
