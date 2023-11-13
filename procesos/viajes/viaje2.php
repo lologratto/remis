@@ -1,3 +1,6 @@
+<?php
+$raiz = "../../";
+?>
 <title>Remis</title>
 <link href="../../img/remis.png" rel="icon">
   <link href="../../template/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
@@ -16,7 +19,7 @@
 
   <!-- Template Main CSS File -->
   <link href="../../template/assets/css/main.css" rel="stylesheet">
-  <link href="../../css/estilos.css" rel="stylesheet">
+  <link href="../../css/1.css" rel="stylesheet">
 <?php
 require "../../php/cabecera3.php";
 ?>
@@ -34,32 +37,44 @@ if ($F !="A"){
     ?>
     <?php
     echo ( "<center>");
+    echo("<div class='container'>");
     echo(" <form action='viaje3.php' method='GET'>");
     echo("<h1>Viajes</h1>");
+
     echo("<select id='cliente' name='cliente'>");
     require "../../php/conexion.php";
-    $q="select * from clientes order by nombrec";
+    $q="select * from clientes order by nombrec ";
+
     $r=mysqli_query($con, $q);
     while($datos2=mysqli_fetch_array($r)){
-    echo("<option value=". $datos2['id_cliente'].">". $datos2['nombrec']."</option>");
-    }
+        if($datos2['id_cliente']==$datos['id_cliente']) {
+            echo("<option selected value='". $datos2['id_cliente']."'>". $datos2['nombrec']."</option>");
+        }else{
+            echo("<option  value='". $datos2['id_cliente']."'>". $datos2['nombrec']."</option>");
+        }
+    
+        }
     
     echo("</select>"); 
     echo(  "<br>"); 
-         echo(  " <input type='text' name='id_viaje' readonly value=".$datos['id_viaje'].">");
+         echo(  " <input type='hidden' name='id_viaje' readonly value=".$datos['id_viaje'].">");
+         echo(  " <input type='hidden'  name='nuevo' placeholder='Ingresa tu Nombre, Apellido, localidad y fecha de nacimiento' >"); 
+
+          echo(  " <input type='number' name='precio'  placeholder='precio' class='form-control'  aria-label='Sizing example input' aria-describedby='inputGroup-sizing-default' value=".$datos['precio'].">");
           echo(  "<br>");
-          echo(  " <input type='number' name='precio'  placeholder='precio' value=".$datos['precio'].">");
+          echo("<label>Fecha del viaje</label>");
           echo(  "<br>");
-          echo("<label>Fecha</label>");
-          echo(  "<br>");
-          echo(  " <input type='date' name='fecha' placeholder='fecha' value=".$datos['fecha'].">");
+          
+          echo(  " <input type='date' name='fecha' placeholder='fecha' class='form-control'  aria-label='Sizing example input' aria-describedby='inputGroup-sizing-default' value=".$datos['fecha'].">");
            echo(  "<br>");
+           echo("<label>Ingrese el año</label>");
+           echo(  " <input type='number' name='año' placeholder='año' class='form-control'  aria-label='Sizing example input' aria-describedby='inputGroup-sizing-default' value=".$datos['añov'].">");
            echo(  "<br>");
-           echo(  " <input type='number' name='año' placeholder='año' value=".$datos['añov'].">");
+           echo("<label>Horario de salida</label>");
+           echo("<input type='time' name='salida' placeholder='hora de salida' class='form-control'  aria-label='Sizing example input' aria-describedby='inputGroup-sizing-default' value=".$datos['hora_salida'].">");
            echo(  "<br>");
-           echo("<input type='text' name='salida' placeholder='hora de salida' value=".$datos['hora_salida'].">");
-           echo(  "<br>");
-           echo(  " <input type='text' name='retorno' placeholder='hora de retorno' value=".$datos['hora_retorno'].">");
+           echo("<label>Horario de Retorno</label>");
+           echo(  " <input type='time' name='retorno' placeholder='hora de retorno' class='form-control' aria-label='Sizing example input' aria-describedby='inputGroup-sizing-default' value=".$datos['hora_retorno'].">");
            echo(  "<br>");
            echo(  " <input type='text' name='estado' placeholder='estado' value=".$datos['estado'].">");
            echo(  "<br>");
@@ -74,10 +89,31 @@ if ($F !="A"){
          $q="select * from coches order by descripcion";
          $r=mysqli_query($con, $q);
         while($datos1=mysqli_fetch_array($r)){
-         echo("<option value=". $datos1['id_coche'].">". $datos1['descripcion']."</option>");
+            if($datos1['id_coche']==$datos['id_coche']) {
+                echo("<option selected value='". $datos1['id_coche']."'>". $datos1['descripcion']."</option>");
+            }else{
+                echo("<option  value='". $datos1['id_coche']."'>". $datos1['descripcion']."</option>");
+            }
+         
     }
    
      echo("</select>");
+
+     echo("<label>Lugar de salida</label>");
+    echo(  "<br>");
+echo("<select id='destino' name='destinol'>");
+require "../../php/conexion.php";
+$q="select * from desde order by desdel";
+$r=mysqli_query($con, $q);
+while($datos3=mysqli_fetch_array($r)){
+    if($datos3['id_desde']==$datos['id_desde']) {
+echo("<option selected value=". $datos3['id_desde'].">". $datos3['desdel']."</option>");
+}else{
+    echo("<option value=". $datos3['id_desde'].">". $datos3['desdel']."</option>");
+}
+}
+
+echo("</select>"); 
     echo(  "<br>");
     echo("<label>Destino</label>");
     echo(  "<br>");
@@ -85,23 +121,29 @@ echo("<select id='destino' name='destino'>");
 require "../../php/conexion.php";
 $q="select * from destinos order by hasta";
 $r=mysqli_query($con, $q);
-while($datos2=mysqli_fetch_array($r)){
-echo("<option value=". $datos2['id_destino'].">". $datos2['hasta']."</option>");
+while($datos4=mysqli_fetch_array($r)){
+    if($datos4['id_destino']==$datos['id_destino']) {
+echo("<option selected value=". $datos4['id_destino'].">". $datos4['hasta']."</option>");
+}else{
+    echo("<option value=". $datos4['id_destino'].">". $datos4['hasta']."</option>");
+}
 }
 
 echo("</select>"); 
 echo(  "<br>");      
     echo("<input type='text' readonly name='funcion' value=".$F.">");
            echo(  "<br>");
-           echo( "<input type='submit' value='modificar'>");
-           
+           echo( "<input type='submit' class='btn btn-success' value='modificar'>");
+           echo("</div>");
     echo ("</form>");
     }
 }
 else{ 
     echo ( "<center>");
+    echo("<div class='container'>");
     echo(" <form action='viaje3.php' method='GET'>");
     echo("<h1>Viajes</h1>");
+    echo(  " <input type='hidden'  name='nuevo' placeholder='Ingresa tu Nombre, Apellido, localidad y fecha de nacimiento' >"); 
 
     echo("<select id='cliente' name='cliente'>");
     require "../../php/conexion.php";
@@ -115,19 +157,27 @@ else{
     echo(  "<br>");    
 
     echo(  " <input type='hidden' name='id_viaje' readonly >");
+    
+    
+    echo("<input type='number'  placeholder='precio del viaje' class='form-control' name='precio' aria-label='Sizing example input' aria-describedby='inputGroup-sizing-default' >");
+        
     echo(  "<br>");
-    echo(  " <input type='number'  name='precio' placeholder='precio' >");
+    echo("<label>Fecha del viaje</label>");
     echo(  "<br>");
-    echo("<label>Fecha</label>");
-    echo(  "<br>");
-    echo(  " <input type='date' name='fecha' placeholder='fecha' >");
+    
+    echo("<input type='date'name='fecha' class='form-control'  aria-label='Sizing example input' aria-describedby='inputGroup-sizing-default' >"); 
+     
+    
      echo(  "<br>");
-     echo(  "<br>");
-     echo(  " <input type='number' name='año' placeholder='año'>");
+     echo("<label>Ingrese el año</label>");
+     echo("<input type='number'  placeholder='año' class='form-control' name='año' aria-label='Sizing example input' aria-describedby='inputGroup-sizing-default' >");
+        
            echo(  "<br>");
-     echo("<input type='text' name='salida' placeholder='hora de salida' >");
+           echo("<label>Horario de salida</label>");
+     echo("<input type='time' name='salida' placeholder='hora de salida' class='form-control' name='año' aria-label='Sizing example input' aria-describedby='inputGroup-sizing-default' >");
      echo(  "<br>");
-     echo(  " <input type='text' name='retorno' placeholder='hora de retorno' >");
+     echo("<label>Horario de Retorno</label>");
+     echo(  " <input type='time' name='retorno' placeholder='hora de retorno' class='form-control' name='año' aria-label='Sizing example input' aria-describedby='inputGroup-sizing-default' >");
      
      echo(  " <input type='hidden' name='estado' placeholder='estado' value='S' >");
      echo(  "<br>");
@@ -147,6 +197,18 @@ else{
 
 echo("</select>");
 echo(  "<br>");
+echo("<label>Lugar de salida</label>");
+echo(  "<br>");
+echo("<select id='destino' name='destinol'>");
+require "../../php/conexion.php";
+$q="select * from desde order by desdel";
+$r=mysqli_query($con, $q);
+while($datos2=mysqli_fetch_array($r)){
+echo("<option value=". $datos2['id_desde'].">". $datos2['desdel']."</option>");
+}
+
+echo("</select>"); 
+
 echo("<label>Destino</label>");
 echo(  "<br>");
 echo("<select id='destino' name='destino'>");
@@ -161,7 +223,8 @@ echo("</select>");
 echo(  "<br>"); 
      echo("<input type='text' readonly name='funcion' value=".$F.">");
      echo(  "<br>");
-     echo( "<input type='submit' value='agregar'>");
+     echo( "<input type='submit' class='btn btn-success' value='agregar'>");
+     echo("</div>");
 echo ("</form>");
 
 

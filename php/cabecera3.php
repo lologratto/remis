@@ -24,7 +24,8 @@
     <h1>Remis<span>.</span></h1>
   </a>
   <nav id="navbar" class="navbar">
-   
+    <ul> <li><a href="<?php echo($raiz."procesos/viajes/viaje.php");?>">atras</a></li>
+ </ul>
   </nav><!-- .navbar -->
   </div>
 </header>

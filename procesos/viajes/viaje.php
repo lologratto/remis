@@ -29,25 +29,17 @@ $raiz = "../../";
 require "../../php/cabecera2.php";
 ?>
 <div class="container text-center" style="border: 1px #000;">
-        <div class="row">
-          <div class="col-10">
+        
+         
            <h1 >Viajes </h1>
            
-          </div>
-          <div class="col">
-            
-          </div>
-        </div>
-      </div>
-      <br>
-      <div>
-      <div class="caja3 ">
+</div>
+         
           
       <div class="container">
-      <div class="caja3 ">
+      
         
-        <table class="table caja2" border="2px"> 
-     </div >
+    
 
      <table class="table table-bordered border-dark table-secondary table-hover" border="2px">
         <thead class="m-1">
@@ -56,6 +48,7 @@ require "../../php/cabecera2.php";
           <tr>
             <th scope="col">funciones</th>
             <th scope="col">Nombre del Cliente</th>
+            <th scope="col">breve desc del cliente nuevo</th>
             <th scope="col">Precio</th>
             <th scope="col">Fecha</th>
             <th scope="col">Año</th>
@@ -65,14 +58,15 @@ require "../../php/cabecera2.php";
             <th scope="col">Cantidad de Asientos Disponibles</th>
             <th scope="col">Cantidad de Asientos Vendidos</th>
             <th scope="col">Coche</th>
+            <th scope="col">Lugar de salida</th>
             <th scope="col">Destino</th>
           </tr>
         </thead>
-        <tbody>
-          </div>
+        
+          
   <?php
   require "../../php/conexion.php";
-  $q="select * from viajes, coches, destinos, clientes where viajes.id_cliente=clientes.id_cliente and  viajes.id_coche=coches.id_coche and  viajes.id_destino=destinos.id_destino";
+  $q="select * from viajes, coches, destinos, desde, clientes where viajes.id_cliente=clientes.id_cliente and viajes.id_desde=desde.id_desde and  viajes.id_coche=coches.id_coche and  viajes.id_destino=destinos.id_destino";
  // echo($q);
   $r=mysqli_query($con, $q);
  
@@ -82,22 +76,19 @@ require "../../php/cabecera2.php";
   
   <a href='viaje2.php?id_viaje=".$datos['id_viaje']."&funcion=B'><img src='../../img/borrar (3).png' alt=''></a>
   
-  <td>". $datos['nombrec']."</td><td>". $datos['precio']."</td><td>".$datos['fecha']."</td><td>".$datos['añov']."</td><td>".$datos['hora_salida']."</td><td>".$datos['hora_retorno']."</td><td>".$datos['estado']."</td><td>".$datos['cant_asiento_dispo']."</td><td>".$datos['cant_asiento_vendido']."</td><td>".$datos['descripcion']."</td><td>".$datos['hasta']."</td>");
+  <td>". $datos['nombrec']."</td><td>". $datos['nuevo']."</td><td>". $datos['precio']."</td><td>".$datos['fecha']."</td><td>".$datos['añov']."</td><td>".$datos['hora_salida']."</td><td>".$datos['hora_retorno']."</td><td>".$datos['estado']."</td><td>".$datos['cant_asiento_dispo']."</td><td>".$datos['cant_asiento_vendido']."</td><td>".$datos['descripcion']."</td><td>".$datos['desdel']."</td><td>".$datos['hasta']."</td>");
    echo("</tr>");
-   
-
-
   }
-  
+
   ?>
-  </tbody>
+ 
   <div class="row">
     <div class="col-2"><a href='viaje2.php?id_viaje=0&funcion=A' ><img src='../../img/pluss.png ' class="m-2" height="50px" ></a></div>
     <div class="col-10 text-end"> <a href="../pagoviajes/pagoviaje.php"><img src="../../img/tarjeta-de-credito.png" style="aling=right; float=right" alt=""></a></div>
   </div>
-  
-  
-  </table>
+</div>
+</div>
+</table>
 </body>
 <?php
 require "../../php/pie.php";

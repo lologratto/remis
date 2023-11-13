@@ -1,7 +1,7 @@
-<title>Remis</title>
 <?php
-$cabe = "../../../";
+$raiz = "../../../";
 ?>
+<title>Remis</title>
 <link href="../../../img/remis.png" rel="icon">
   <link href="../../../template/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
@@ -19,52 +19,179 @@ $cabe = "../../../";
 
   <!-- Template Main CSS File -->
   <link href="../../../template/assets/css/main.css" rel="stylesheet">
-  
-  <header id="header" class="header d-flex align-items-center">
+  <link href="../../../css/1.css" rel="stylesheet">
+<?php
+require "../../../php/cabecera3.php";
+?>
+<?php
+require "../../../php/conexion.php";
+$id = $_GET['id_viaje'];
+$F=$_GET['funcion'];
+ 
+if ($F !="A"){
+    // modificar y borrar
+    $q="select * from viajes where id_viaje=$id";
 
-<div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-  <a href="principal.html" class="logo d-flex align-items-center">
-    <!-- Uncomment the line below if you also wish to use an image logo -->
-    <!-- <img src="assets/img/logo.png" alt=""> -->
-    <h1>Remis<span>.</span></h1>
-  </a>
-  <nav id="navbar" class="navbar">
-    <ul>
-      <li><a href="<?php echo($cabe."principal.php");?>">Atras</a></li>
-      
-  </nav><!-- .navbar -->
+    $r=mysqli_query($con, $q);
+    while($datos=mysqli_fetch_array($r)){
+    ?>
+    <?php
+    echo ( "<center>");
+    echo(" <form action='../viaje3.php' method='GET'>");
+    echo("<h1>Viajes</h1>");
+    echo("<select id='cliente' name='cliente'>");
+    require "../../../php/conexion.php";
+    $q="select * from clientes order by nombrec";
+    $r=mysqli_query($con, $q);
+    while($datos2=mysqli_fetch_array($r)){
+    echo("<option value=". $datos2['id_cliente'].">". $datos2['nombrec']."</option>");
+    }
+    
+    echo("</select>"); 
+    echo(  "<br>"); 
+         echo(  " <input type='text' name='id_viaje' readonly value=".$datos['id_viaje'].">");
+          echo(  "<br>");
+          echo(  " <input type='number' name='precio'  placeholder='precio' value=".$datos['precio'].">");
+          echo(  "<br>");
+          echo("<label>Fecha</label>");
+          echo(  "<br>");
+          echo(  " <input type='date' name='fecha' placeholder='fecha' value=".$datos['fecha'].">");
+           echo(  "<br>");
+           echo(  "<br>");
+           echo(  " <input type='number' name='año' placeholder='año' value=".$datos['añov'].">");
+           echo(  "<br>");
+           echo("<input type='text' name='salida' placeholder='hora de salida' value=".$datos['hora_salida'].">");
+           echo(  "<br>");
+           echo(  " <input type='text' name='retorno' placeholder='hora de retorno' value=".$datos['hora_retorno'].">");
+           echo(  "<br>");
+           echo(  " <input type='text' name='estado' placeholder='estado' value=".$datos['estado'].">");
+           echo(  "<br>");
+           echo(  " <input type='text' name='disponible' placeholder='cantidad de asientos disponible' value=".$datos['cant_asiento_dispo'].">");
+           echo(  "<br>");
+           echo(  " <input type='text' name='vendidos' placeholder='cantidad de asientos vendidos' value=".$datos['cant_asiento_vendido'].">");
+           echo(  "<br>");
+           echo("<label>Coche</label>");
+          echo(  "<br>");
+          echo("<select id='marca' name='marca'>");
+         require "../../../php/conexion.php";
+         $q="select * from coches order by descripcion";
+         $r=mysqli_query($con, $q);
+        while($datos1=mysqli_fetch_array($r)){
+         echo("<option value=". $datos1['id_coche'].">". $datos1['descripcion']."</option>");
+    }
+   
+     echo("</select>");
+    echo(  "<br>");
+    echo("<label>Destino</label>");
+    echo(  "<br>");
+echo("<select id='destino' name='destino'>");
+require "../../../php/conexion.php";
+$q="select * from destinos order by hasta";
+$r=mysqli_query($con, $q);
+while($datos2=mysqli_fetch_array($r)){
+echo("<option value=". $datos2['id_destino'].">". $datos2['hasta']."</option>");
+}
 
-  <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
-  <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
-
-</div>
-</header>
-<div class="container text-center" style="border: 1px #000;">
-        <div class="row">
-          <div class="col-10">
-           <h1 >Viajes </h1>
+echo("</select>"); 
+echo(  "<br>");      
+    echo("<input type='text' readonly name='funcion' value=".$F.">");
+           echo(  "<br>");
+           echo( "<input type='submit' value='modificar'>");
            
-          </div>
-          <div class="col">
-            
-          </div>
-        </div>
-      </div>
-      <br>
-      <div>
-      <div class="caja3 ">
-      <table class="table caja2" border="2px"> 
-     </div >
+    echo ("</form>");
+    }
+}
+else{ 
+    echo ( "<center>");
+    echo("<div class='container'>");
+    echo(" <form action='../viaje3.php' method='GET'>");
+    echo("<h1>Viajes</h1>");
+    echo("<label>En caso de no ser cliente tenes que poner la opcion de cliente 0 y completar con los siguentes datos. Gracias</label>");
+   echo(  "<br>");
+    echo("<select   id='cliente' name='cliente'>");
+    require "../../../php/conexion.php";
+    $q="select * from clientes order by nombrec";
+    $r=mysqli_query($con, $q);
+    while($datos2=mysqli_fetch_array($r)){
+    echo("<option   value=". $datos2['id_cliente'].">". $datos2['nombrec']."</option>");
+    }
+    
+    echo("</select>");
+    echo(  "<br>");   
+    echo(  " <input type='text'  name='nuevo' placeholder='Ingresa tu Nombre, Apellido, localidad y fecha de nacimiento' >"); 
 
-     <table class="table table-bordered border-dark table-secondary table-hover" border="2px">
-        <thead class="m-1">
-      
-        
-  <label for=""><h5>Reserva tu viaje aca!!!</h5></label><img src="../../../img/flecha-correcta.png " height="50px" alt=""><a href='../viaje2.php?id_viaje=0&funcion=A' ><img src='../../../img/pluss.png ' class="m-2" height="100px" ></a>
-  </table>
-</body>
+    echo(  " <input type='hidden' name='id_viaje' readonly >");
+    
+    echo(  " <input type='hidden'  name='precio' placeholder='precio' >");
+    
+    echo("<label>Fecha del viaje</label>");
+    echo(  "<br>");
+    
+   echo("<input type='date' class='form-control' name='fecha' aria-label='Sizing example input' aria-describedby='inputGroup-sizing-default' >"); 
+     
+     echo(  "<br>");
+   
+     echo("<input type='number'  placeholder='año' class='form-control' name='año' aria-label='Sizing example input' aria-describedby='inputGroup-sizing-default' >");
+           echo(  "<br>");
+           echo("<label>Horario de salida</label>");
+     echo("<input type='time' name='salida' placeholder='hora de salida' class='form-control' name='año' aria-label='Sizing example input' aria-describedby='inputGroup-sizing-default' >");
+     echo(  "<br>");
+     echo("<label>Horario de Retorno</label>");
+     echo(  " <input type='time' name='retorno' placeholder='hora de retorno' class='form-control' name='año' aria-label='Sizing example input' aria-describedby='inputGroup-sizing-default' >");
+     
+     echo(  " <input type='hidden' name='estado' placeholder='estado' value='S' >");
+     
+     echo(  " <input type='hidden' name='disponible' placeholder='asientos disponible' >");
+     echo(  "<br>");
+     echo(  " <input type='text' name='vendidos' placeholder='asientos a reservar' >");
+     echo(  "<br>");
+     echo("<label>Coche</label>");
+     echo(  "<br>");
+     echo("<select id='marca' name='marca'>");
+    require "../../../php/conexion.php";
+    $q="select * from coches order by descripcion";
+    $r=mysqli_query($con, $q);
+   while($datos1=mysqli_fetch_array($r)){
+    echo("<option value=". $datos1['id_coche'].">". $datos1['descripcion']."</option>");
+}
+
+echo("</select>");
+echo("<label>Lugar de Partida</label>");
+echo(  "<br>");
+echo("<select id='destino' name='destino'>");
+require "../../../php/conexion.php";
+$q="select * from desde order by desdel";
+$r=mysqli_query($con, $q);
+while($datos2=mysqli_fetch_array($r)){
+echo("<option value=". $datos2['id_destino'].">". $datos2['desdel']."</option>");
+}
+
+echo("</select>"); 
+     echo("<label>Destino</label>");
+    echo(  "<br>");
+echo("<select id='destino' name='destino'>");
+require "../../../php/conexion.php";
+$q="select * from destinos order by hasta";
+$r=mysqli_query($con, $q);
+while($datos2=mysqli_fetch_array($r)){
+echo("<option value=". $datos2['id_destino'].">". $datos2['hasta']."</option>");
+}
+
+echo("</select>"); 
+
+echo(  "<br>"); 
+     echo("<input type='hidden' readonly name='funcion' value=".$F.">");
+     
+     echo("<label>¿Ya terminaste?. En minutos un administrador se encargara de completar los ultimos datos y su viaje sera cargado exitosamente</label>");
+     echo(  "<br>");
+     
+     echo( "<input type='submit' class='btn btn-success' value='agregar'>");
+     echo("</div>");
+echo ("</form>");
 
 
+}
+?>
 <?php
 require "../../../php/pie.php";
 ?>

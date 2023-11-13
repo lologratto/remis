@@ -40,7 +40,7 @@ require "../../php/cabecera2.php";
           </div>
         </div>
       </div>
-      <br>
+     
       <div class="container">
       <div class="caja3 ">
           

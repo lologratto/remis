@@ -40,15 +40,15 @@ require "../../php/cabecera2.php";
           </div>
         </div>
       </div>
-      <br>
+     
       <div>
       <div class="caja3 ">
           
       <div class="container">
       <div class="caja3 ">
-        
-        <table class="table caja2" border="2px"> 
-     </div >
+      <div class="row">
+          <div class="col-3">
+       
 
      <table class="table table-bordered border-dark table-secondary table-hover" border="2px">
         <thead class="m-1">
@@ -83,6 +83,7 @@ require "../../php/cabecera2.php";
   </tbody>
   <a href='modelo2.php?id_modelo=0&funcion=A' ><img src='../../img/pluss.png ' class="m-2" height="50px" ></a>
   </table>
+</div></div>
 </body>
 <?php
 require "../../php/pie.php";

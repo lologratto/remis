@@ -144,12 +144,14 @@ $cabe = " ";
 
           <div class="col-lg-4 col-md-6">
             <div class="service-item  position-relative">
+            <h1>Reserva aca!!!</h1>
               <div class="icon">
                 <i class="bi bi-car-front-fill"></i>
+                
               </div>
               <h3>Viajes a larga distancia</h3>
               <p>Vos eleji el destino y nostros hacemos el resto</p>
-              <a href="procesos/viajes/viajes2/viaje2,0.php" class="readmore stretched-link">Read more <i class="bi bi-car-front-fill"></i></a>
+              <a href="procesos/viajes/viajes2/viaje2,0.php?id_viaje=0&funcion=A" class="readmore stretched-link">Read more <i class="bi bi-car-front-fill"></i></a>
             </div>
           </div><!-- End Service Item -->
 
