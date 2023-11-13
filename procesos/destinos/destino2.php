@@ -1,3 +1,6 @@
+<?php
+$raiz = "../../";
+?>
 <title>Remis</title>
 <link href="../../img/remis.png" rel="icon">
   <link href="../../template/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
@@ -16,8 +19,9 @@
 
   <!-- Template Main CSS File -->
   <link href="../../template/assets/css/main.css" rel="stylesheet">
+  <link href="../../css/1.css" rel="stylesheet">
 <?php
-require "../../php/cabecera3.php";
+require "../../php/cabecera4.php";
 ?>
 <?php
 require "../../php/conexion.php";
@@ -42,7 +46,7 @@ if ($F !="A"){
            echo(  "<br>");
            echo("<input type='text' readonly name='funcion' value=".$F.">");
            echo(  "<br>");
-           echo( "<input type='submit' value='modificar'>");
+           echo( "<input type='submit' class='btn btn-success' value='modificar'>");
            
     echo ("</form>");
     }
@@ -58,7 +62,7 @@ else{
      echo(  "<br>");
      echo("<input type='text' readonly name='funcion' value=".$F.">");
      echo(  "<br>");
-     echo( "<input type='submit' value='agregar'>");
+     echo( "<input type='submit' class='btn btn-success' value='agregar'>");
 echo ("</form>");
 
 

@@ -1,3 +1,6 @@
+<?php
+$raiz = "../../";
+?>
 <title>Remis</title>
 <link href="../../img/remis.png" rel="icon">
   <link href="../../template/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
@@ -16,9 +19,9 @@
 
   <!-- Template Main CSS File -->
   <link href="../../template/assets/css/main.css" rel="stylesheet">
-  <link href="../../css/estilos.css" rel="stylesheet">
+  <link href="../../css/1.css" rel="stylesheet">
 <?php
-require "../../php/cabecera3.php";
+require "../../php/cabecera6.php";
 ?>
 <?php
 require "../../php/conexion.php";
@@ -45,8 +48,13 @@ if ($F !="A"){
           $q="select * from modelos order by modelo";
           $r=mysqli_query($con, $q);
           while($datos1=mysqli_fetch_array($r)){
-           echo("<option value=". $datos1['id_modelo'].">". $datos1['modelo']."</option>");
+            if($datos1['id_modelo']==$datos['id_modelo']) {
+           echo("<option selected value=". $datos1['id_modelo'].">". $datos1['modelo']."</option>");
+          }else{
+            echo("<option value=". $datos1['id_modelo'].">". $datos1['modelo']."</option>");
+         
           }
+      }
          
           echo("</select>");
           echo(  "<br>");
@@ -57,8 +65,13 @@ if ($F !="A"){
           $q="select * from marcas order by marca";
           $r=mysqli_query($con, $q);
           while($datos2=mysqli_fetch_array($r)){
-           echo("<option value=". $datos2['id_marca'].">". $datos2['marca']."</option>");
+            if($datos2['id_marca']==$datos['id_marca']) {
+           echo("<option selected value=". $datos2['id_marca'].">". $datos2['marca']."</option>");
+          }else{
+            echo("<option value=". $datos2['id_marca'].">". $datos2['marca']."</option>");
+        
           }
+      }
          
           echo("</select>");
            echo(  "<br>");
@@ -69,7 +82,7 @@ if ($F !="A"){
            
            echo("<input type='text' readonly name='funcion' value=".$F.">");
            echo(  "<br>");
-           echo( "<input type='submit' value='modificar'>");
+           echo( "<input type='submit' class='btn btn-success' value='modificar'>");
            
     echo ("</form>");
     }
@@ -110,7 +123,7 @@ else{
      echo(  "<br>");
      echo("<input type='text' readonly name='funcion' value=".$F.">");
      echo(  "<br>");
-     echo( "<input type='submit' value='agregar'>");
+     echo( "<input type='submit' class='btn btn-success' value='agregar'>");
 echo ("</form>");
 
 
