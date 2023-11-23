@@ -28,7 +28,8 @@ $raiz = "../../";
   <link href="../../template/assets/css/main.css" rel="stylesheet">
 <?php
 require "../../php/cabecera2.php";
-?>
+?> 
+
 <div class="container text-center" style="border: 1px #000;">
         <div class="row">
           <div class="col-10">
@@ -43,7 +44,10 @@ require "../../php/cabecera2.php";
      
       <div class="container">
       <div class="caja3 ">
-          
+      
+        
+      <div class="row">
+          <div class="col-5">
         
         
         <table class="table caja2" border="2px"> 
@@ -85,9 +89,12 @@ require "../../php/cabecera2.php";
   </tbody>
   <a href='cliente2.php?id_cliente=0&funcion=A' ><img src='../../img/pluss.png ' class="m-2" height="50px" ></a>
   </table>
+  
+  </div></div>
   </div>
-</div>
+
 </body>
+
 <?php
 require "../../php/pie.php";
 ?>

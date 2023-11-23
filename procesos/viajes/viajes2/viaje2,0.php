@@ -124,27 +124,75 @@ else{
     
     echo(  " <input type='hidden'  name='precio' placeholder='precio' >");
     
-    echo("<label>Fecha del viaje</label>");
-    echo(  "<br>");
     
-   echo("<input type='date' class='form-control' name='fecha' aria-label='Sizing example input' aria-describedby='inputGroup-sizing-default' >"); 
+   echo("<div class='container'>") ;
+   echo("<div class='row'>") ;
+   echo("<div class='col-4'>"); 
+   echo("<div class='input-group mb-3'>");     
+    echo("<label class='input-group-text'  for=''>Fecha del viaje</label>");
      
-     echo(  "<br>");
+    echo("<input type='date' class='form-control' name='fecha' aria-label='Sizing example input' aria-describedby='inputGroup-sizing-default' >"); 
    
-     echo("<input type='number'  placeholder='año' class='form-control' name='año' aria-label='Sizing example input' aria-describedby='inputGroup-sizing-default' >");
-           echo(  "<br>");
-           echo("<label>Horario de salida</label>");
-     echo("<input type='time' name='salida' placeholder='hora de salida' class='form-control' name='año' aria-label='Sizing example input' aria-describedby='inputGroup-sizing-default' >");
-     echo(  "<br>");
-     echo("<label>Horario de Retorno</label>");
-     echo(  " <input type='time' name='retorno' placeholder='hora de retorno' class='form-control' name='año' aria-label='Sizing example input' aria-describedby='inputGroup-sizing-default' >");
+   
+   echo("</div>") ;
+   echo("</div>") ;
+   echo("<div class='col-1'></div>") ;
+   echo("<div class='col-3'>") ;
+   echo("<div class='input-group mb-3'>");
+   
+   echo("<label class='input-group-text'  for=''>Año</label>");
+   
+   echo("<input type='number'  placeholder='año' class='form-control' name='año' aria-label='Sizing example input' aria-describedby='inputGroup-sizing-default' >");
      
+  
+  
+   echo("</div>") ;
+   echo("</div>") ;
+   echo("</div>") ;
+
+  
+
+   echo("<div class='container'>") ;
+   echo("<div class='row'>") ;
+   echo("<div class='col-4'>"); 
+   echo("<div class='input-group mb-3'>");     
+    echo("<label class='input-group-text'  for=''>Hora de salida</label>");
+     
+    echo("<input type='time' name='salida' placeholder='hora de salida' class='form-control' name='año' aria-label='Sizing example input' aria-describedby='inputGroup-sizing-default' >");
+     
+   
+   echo("</div>") ;
+   echo("</div>") ;
+   echo("<div class='col-1'></div>") ;
+   echo("<div class='col-4'>") ;
+   echo("<div class='input-group mb-3'>");
+   echo("<label class='input-group-text'  for=''>Hora de retorno</label>");
+   echo(  " <input type='time' name='retorno' placeholder='hora de retorno' class='form-control' name='año' aria-label='Sizing example input' aria-describedby='inputGroup-sizing-default' >");
+   echo("</div>") ;
+   echo("</div>") ;
+   echo("</div>") ;
+
+  
+        
+        
+       
+      
+     
+       
+    
+
+     
+    
      echo(  " <input type='hidden' name='estado' placeholder='estado' value='S' >");
      
      echo(  " <input type='hidden' name='disponible' placeholder='asientos disponible' >");
      echo(  "<br>");
+     echo("<div class='container'>");
+     echo("<div class='row'>") ;
+       echo("<div class='col-3'>");
      echo(  " <input type='text' name='vendidos' placeholder='asientos a reservar' >");
-     echo(  "<br>");
+     echo("</div></div></div>");
+    
      echo("<label>Coche</label>");
      echo(  "<br>");
      echo("<select id='marca' name='marca'>");
